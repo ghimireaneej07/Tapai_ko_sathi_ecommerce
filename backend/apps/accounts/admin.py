@@ -8,12 +8,6 @@ class UserAdmin(BaseUserAdmin):
     list_display = ("username", "email", "first_name", "last_name", "is_staff", "date_joined")
     list_filter = ("is_staff", "is_superuser", "is_active", "date_joined")
     search_fields = ("username", "email", "first_name", "last_name")
-    fieldsets = BaseUserAdmin.fieldsets + (
-        ("Additional Info", {
-            "fields": ("first_name", "last_name"),
-            "classes": ("collapse",)
-        }),
-    )
 
 
 # Unregister the default User admin and register our custom one
