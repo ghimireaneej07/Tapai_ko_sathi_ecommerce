@@ -60,3 +60,10 @@ Frontend URL: `http://localhost:5173`
 ## Recommended Next Step
 
 Seed product/category data in Django admin so frontend screens render real inventory.
+
+## Known Backend Gaps (Pending Fixes)
+
+- Database credentials in `backend/.env` must be configured before Django API can start.
+- Product listing and featured endpoints return empty UI fallback when backend is offline.
+- Order/checkout flows are wired on frontend but depend on authenticated API + populated DB.
+- Future maintenance: add DB health checks and seed command for first-run developer setup.
