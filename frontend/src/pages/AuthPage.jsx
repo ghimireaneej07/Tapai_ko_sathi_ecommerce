@@ -46,7 +46,7 @@ export default function AuthPage() {
         </button>
       </div>
       <div className="order-1 overflow-hidden rounded-3xl bg-herb-100 lg:order-2">
-        <img src={authImage} alt="Login and sign up" className="h-full min-h-72 w-full object-cover" />
+        <img src={authImage} alt="Login and sign up" loading="lazy" decoding="async" className="h-full min-h-72 w-full object-cover" />
       </div>
     </section>
   );

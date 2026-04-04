@@ -46,6 +46,9 @@ export default function HomePage() {
         <img
           src={heroImage}
           alt="Local herbal products"
+          loading="eager"
+          fetchPriority="high"
+          decoding="async"
           className="h-72 w-full rounded-3xl object-cover md:h-[26rem]"
         />
       </div>
@@ -73,6 +76,8 @@ export default function HomePage() {
             <img
               src={categoryRawHerbsImage}
               alt="Raw herbs"
+              loading="lazy"
+              decoding="async"
               className="h-48 w-full object-cover"
             />
             <div className="p-4">
@@ -84,6 +89,8 @@ export default function HomePage() {
             <img
               src={categoryAyurvedicImage}
               alt="Ayurvedic medicine"
+              loading="lazy"
+              decoding="async"
               className="h-48 w-full object-cover"
             />
             <div className="p-4">
@@ -95,6 +102,8 @@ export default function HomePage() {
             <img
               src={rareProductsImage}
               alt="Rare products"
+              loading="lazy"
+              decoding="async"
               className="h-48 w-full object-cover"
             />
             <div className="p-4">

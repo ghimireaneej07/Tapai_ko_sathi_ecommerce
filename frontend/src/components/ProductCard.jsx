@@ -9,6 +9,8 @@ function ProductCard({ product, onAddToCart }) {
       <img
         src={product.image_url || fallbackProductImage}
         alt={product.name}
+        loading="lazy"
+        decoding="async"
         className="h-44 w-full object-cover"
       />
       <div className="space-y-3 p-5">
