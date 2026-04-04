@@ -1,0 +1,68 @@
+@import url("https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;700;800&family=Inter:wght@400;500;600;700&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --surface: #f0fdf1;
+  --surface-low: #e6f8e9;
+  --text-main: #213729;
+  font-family: "Inter", sans-serif;
+  color: var(--text-main);
+  background:
+    radial-gradient(circle at 14% 8%, rgba(145, 247, 142, 0.26) 0, rgba(240, 253, 241, 0) 40%),
+    radial-gradient(circle at 80% 14%, rgba(206, 233, 213, 0.65) 0, rgba(240, 253, 241, 0) 44%),
+    linear-gradient(180deg, var(--surface) 0%, var(--surface-low) 100%);
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  background: transparent;
+  color: var(--text-main);
+}
+
+h1,
+h2,
+h3,
+h4 {
+  font-family: "Plus Jakarta Sans", sans-serif;
+  letter-spacing: -0.02em;
+}
+
+.soft-card {
+  @apply rounded-3xl bg-white/95 shadow-mist backdrop-blur-sm;
+}
+
+.tone-card {
+  @apply rounded-3xl bg-herb-100/80 shadow-mist;
+}
+
+.pill-btn {
+  @apply rounded-full bg-gradient-to-br from-herb-700 to-herb-600 px-5 py-2.5 font-semibold text-herb-50 transition duration-200 hover:shadow-float focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-herb-700/40;
+}
+
+.ghost-btn {
+  @apply rounded-full bg-herb-200/70 px-5 py-2.5 font-semibold text-herb-800 transition duration-200 hover:bg-herb-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-herb-700/20;
+}
+
+.input-shell {
+  @apply w-full rounded-2xl border border-herb-300/20 bg-herb-100 px-4 py-3 text-herb-900 outline-none transition duration-200 placeholder:text-herb-900/55 focus:border-herb-700/40 focus:bg-white focus:ring-2 focus:ring-herb-700/30;
+}
+
+@layer base {
+  * {
+    box-sizing: border-box;
+  }
+}
+
+@layer components {
+  .section-heading {
+    @apply font-display text-4xl font-extrabold leading-[1.08] tracking-tight text-herb-800 md:text-5xl;
+  }
+
+  .section-subtitle {
+    @apply text-base text-herb-900/75 md:text-lg;
+  }
+}
