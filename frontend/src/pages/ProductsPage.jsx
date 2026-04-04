@@ -8,10 +8,17 @@ export default function ProductsPage() {
   const [query, setQuery] = useState("");
   const [products, setProducts] = useState([]);
   const [categories, setCategories] = useState([]);
+  const [loadError, setLoadError] = useState("");
 
   const loadProducts = useCallback(async (search = "") => {
-    const { data } = await getProducts(search);
-    setProducts(data);
+    try {
+      const { data } = await getProducts(search);
+      setProducts(data);
+      setLoadError("");
+    } catch (error) {
+      setProducts([]);
+      setLoadError(error?.userMessage || "Products are unavailable right now. Please start backend services.");
+    }
   }, []);
 
   useEffect(() => {
@@ -71,6 +78,8 @@ export default function ProductsPage() {
           <ProductCard key={product.id} product={product} onAddToCart={handleAdd} />
         ))}
       </div>
+      {loadError && <p className="text-sm text-herb-900/75">{loadError}</p>}
+      {!loadError && products.length === 0 && <p className="text-sm text-herb-900/70">No products found for your filter.</p>}
     </section>
   );
 }

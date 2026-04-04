@@ -10,11 +10,18 @@ import rareProductsImage from "../../media/staff_fav_section/wild_himalayan_hone
 
 export default function HomePage() {
   const [products, setProducts] = useState([]);
+  const [featuredError, setFeaturedError] = useState("");
 
   useEffect(() => {
     getFeaturedProducts()
-      .then((res) => setProducts(res.data))
-      .catch(() => setProducts([]));
+      .then((res) => {
+        setProducts(res.data);
+        setFeaturedError("");
+      })
+      .catch(() => {
+        setProducts([]);
+        setFeaturedError("Featured products are temporarily unavailable while backend setup is incomplete.");
+      });
   }, []);
 
   const handleAdd = useCallback(async (productId) => {
@@ -122,6 +129,7 @@ export default function HomePage() {
             <ProductCard key={product.id} product={product} onAddToCart={handleAdd} />
           ))}
         </div>
+        {featuredError && <p className="text-sm text-herb-900/75">{featuredError}</p>}
       </div>
 
       <div className="tone-card flex flex-col items-start gap-4 p-8 md:flex-row md:items-center md:justify-between">
