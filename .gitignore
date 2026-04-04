@@ -13,3 +13,83 @@ frontend/.env
 # VSCode
 .vscode/
 .vscode/*.log
+# Python
+.venv/
+venv/
+env/
+*.egg-info/
+*.egg
+build/
+dist/
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+pip-log.txt
+pip-delete-this-directory.txt
+.tox/
+coverage.xml
+*.cover
+.hypothesis/
+.pytest_cache/
+
+# Django
+backend/.env
+backend/db.sqlite3
+backend/**/__pycache__/
+backend/**/*.pyc
+backend/*/migrations/*.pyc
+backend/staticfiles/
+backend/media/
+
+# Node/NPM
+frontend/node_modules/
+frontend/dist/
+frontend/build/
+frontend/.env
+frontend/.env.local
+frontend/.env.*.local
+frontend/npm-debug.log*
+frontend/yarn-debug.log*
+frontend/yarn-error.log*
+frontend/pnpm-debug.log*
+
+# IDE/Editor
+.vscode/
+.vscode/*.log
+.idea/
+.idea/shelf/
+*.sublime-project
+*.sublime-workspace
+.DS_Store
+.env.local
+.env.*.local
+
+# OS
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+.env.*.local
+
+# Misc
+*.log
+*.swp
+*.swo
+*~
+.vscode/settings.json
+.vscode/launch.json
+.vscode/extensions.json
+
+# Railway/Deployment
+.railway/
+
+# Local testing
+.cache/
+.pytest/
+test-results/
+coverage/
