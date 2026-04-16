@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 
 import { getCart, removeCartItem, updateCartItem } from "../api/cart";
+import { buildProductDisplayDescription, buildProductImageTitle } from "../utils/productMedia";
 
 export default function CartPage() {
   const [cart, setCart] = useState(null);
@@ -38,7 +39,8 @@ export default function CartPage() {
         {cart.items?.map((item) => (
           <article key={item.id} className="soft-card flex flex-col gap-3 p-5 md:flex-row md:items-center md:justify-between">
             <div>
-              <h2 className="font-display text-xl font-bold">{item.product.name}</h2>
+              <h2 className="font-display text-xl font-bold">{buildProductImageTitle(item.product)}</h2>
+              <p className="text-sm text-herb-900/70">{buildProductDisplayDescription(item.product)}</p>
               <p className="text-herb-900/70">Rs. {item.product.price}</p>
             </div>
             <div className="flex items-center gap-2">

@@ -13,6 +13,9 @@ frontend/.env
 # VSCode
 .vscode/
 .vscode/*.log
+
+# Ignore GitHub metadata in this repo
+.github/
 # Python
 .venv/
 venv/

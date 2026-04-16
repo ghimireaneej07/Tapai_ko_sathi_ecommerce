@@ -18,9 +18,12 @@ class ProductListView(generics.ListAPIView):
     def get_queryset(self):
         queryset = Product.objects.filter(is_active=True).select_related("category")
         query = self.request.query_params.get("q")
+        category = self.request.query_params.get("category")
         featured = self.request.query_params.get("featured")
         if query:
             queryset = queryset.filter(Q(name__icontains=query) | Q(description__icontains=query))
+        if category:
+            queryset = queryset.filter(Q(category__slug__iexact=category) | Q(category__name__iexact=category))
         if featured == "true":
             queryset = queryset.filter(featured=True)
         return queryset

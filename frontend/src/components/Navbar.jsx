@@ -1,10 +1,12 @@
 import { Link, NavLink } from "react-router-dom";
 
 import { useAuth } from "../context/AuthContext";
+import { useWishlist } from "../context/WishlistContext";
 import logo from "../../media/logo_.png";
 
 export default function Navbar() {
   const { user } = useAuth();
+  const { wishlistCount } = useWishlist();
 
   const iconButtonClass = "rounded-xl border border-transparent p-1.5 transition duration-200 hover:border-herb-200 hover:bg-herb-100";
 
@@ -32,7 +34,9 @@ export default function Navbar() {
           <NavLink to="/" className={navItemClass}>Home</NavLink>
           <NavLink to="/products" className={navItemClass}>Categories</NavLink>
           <NavLink to="/profile" className={navItemClass}>Orders</NavLink>
-          <NavLink to="/products" className={navItemClass}>Wishlist</NavLink>
+          <NavLink to="/wishlist" className={navItemClass}>
+            Wishlist {wishlistCount > 0 ? `(${wishlistCount})` : ""}
+          </NavLink>
         </div>
 
         <div className="ml-auto flex shrink-0 items-center gap-1.5 text-herb-900 md:gap-2">
